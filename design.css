@@ -2,9 +2,17 @@ img{
     max-width: 180px;
 }
 
-img:hover{
-    border: 8px grey solid;
-    max-width: 150px;
+.game{
+    width: 720px;
+
+}
+
+.card{
+    float: left;
+    margin: 5px;
+    height: 150px;
+    width: 150px;
+    background: red;
 }
 
 body{
