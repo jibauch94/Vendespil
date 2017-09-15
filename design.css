@@ -1,0 +1,20 @@
+img{
+    max-width: 180px;
+}
+
+img:hover{
+    border: 8px grey solid;
+    max-width: 150px;
+}
+
+body{
+    background-image: url("Images/background picture.jpg");
+}
+
+h1{
+    color: white;
+}
+
+p {
+    color: white;
+}
