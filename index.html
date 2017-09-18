@@ -17,22 +17,22 @@
 <button id="shuffle" onclick="app.shuffle()">Bland kort</button> <br>
 
 <div class="game">
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
+    <div class="card nomatch"></div>
 </div>
 
 
@@ -77,9 +77,33 @@
 
             clickHandlers: function () {
                 $('.card').on('click', function () {
-                    $(this).html($(this).data('cardValue'));
+                    $(this).html($(this).data('cardValue')).addClass('selected');
+                    app.checkMatch();
                 });
 
+            },
+            checkMatch: function () {
+                if ($('.selected').length == 2) {
+                    if ($('.selected').first().data('cardValue') == $('.selected').last().data('cardValue')) {
+                        //remove cards
+                        $('.selected').each(function(){
+                          $(this).animate({opacity: 0}).removeClass('unmatch');
+                        });
+                        $('.selected').each(function() {
+                            $(this).removeClass('selected');
+                        });
+                    } else {
+                        //flip cards back
+                        setTimeout(function () {
+                        $('.selected').each(function(){
+                            $(this).html('').removeClass('selected');
+                        });
+                        },1000);
+
+                    }
+
+
+                }
             }
 
         };
