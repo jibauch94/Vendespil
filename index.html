@@ -47,9 +47,14 @@
 
         var app; //var app laves for at definere en klasse - app vil fungere som en java klasse man kan kalde med app.(den funktion/metode man vil bruge)
         app = {
-            //cars : ['Images/2016%Charger.jpg', 'Images/2016%20Charger.jpg', 'Images/BMW%20i8%20IFA.jpg', 'Images/BMW%20i8%20IFA.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/LaFerrari.png', 'Images/LaFerrari.png', 'Images/challenger%202017.jpg', 'Images/challenger%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/LFA%202017.jpg', 'Images/LFA%202017.jpg'],
+            cars : ['Images/2016%Charger.jpg', 'Images/2016%Charger.jpg', 'Images/BMW%20i8%20IFA.jpg', 'Images/BMW%20i8%20IFA.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/LaFerrari.png', 'Images/LaFerrari.png', 'Images/challenger%202017.jpg', 'Images/challenger%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/LFA%202017.jpg', 'Images/LFA%202017.jpg'],
+            foreach:function (image) {
+              var img = document.createElement('img');
+              img.src = image;
+              document.body.appendChild(img)
+            },
+            //cars: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8], //cars er et array der indeholder elementer til brikkerne
 
-            cars: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8], //cars er et array der indeholder elementer til brikkerne
             init: function () { //init functionen agere som start - dvs kortene/brikkerne blandes ved opstart
                 app.shuffle(); //shuffle metoden kaldes
 
@@ -59,7 +64,7 @@
                 var temp = 0;
                 for (i = 1; i < app.cars.length; i++) {
                     random = Math.round(Math.random() * i);
-                    console.log(random);
+                    //console.log(random);
                     temp = app.cars[i];
                     app.cars[i] = app.cars[random];
                     app.cars[random] = temp;
@@ -68,8 +73,8 @@
                 console.log(app.cars);
             },
             assignCars: function () {// assignCars metoden vil tilknytte et objekt fra arrayet til en plads på kortet, dvs. hvert kort tildeles et nummer fra arrayet
-                $('.card').each(function (index) {
-                    $(this).attr('data-card-value', app.cars[index]);
+                $('.card').each(function (index) { //each funktionen her bruges til at løbe igennem jquery objected som i dette tilfælde er vores <div> i body'en
+                    $(this).attr('data-card-value', app.cars[index]); // når et billede er placeret giver vi den en attribute 'data-card-value' og så er der lagt en 'bil' på en plads - herefter looper each funktionen igenenm til alle .card pladser er udfyldt
                     //app.cars[index];
                 });
                 app.clickHandlers();
