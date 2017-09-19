@@ -1,17 +1,19 @@
 img{
-    max-width: 180px;
+    width: 180px;
+    height: 120px;
 }
 
 .game{
-    width: 720px;
+    width: 900px;
+    height: 600px;
 
 }
 
 .card{
     float: left;
     margin: 5px;
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 180px;
     background: red;
 }
 
