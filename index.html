@@ -37,22 +37,13 @@
 
 
 
+
 <script>
     $(document).ready(function () {
-       //var cars = ['Images/2016%Charger.jpg', 'Images/2016%20Charger.jpg', 'Images/BMW%20i8%20IFA.jpg', 'Images/BMW%20i8%20IFA.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/LaFerrari.png', 'Images/LaFerrari.png', 'Images/challenger%202017.jpg', 'Images/challenger%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/LFA%202017.jpg', 'Images/LFA%202017.jpg'];
-        //cars.forEach(function (image) {
-           // var img = document.createElement('img');
-            //img.src = image;
-            //document.body.appendChild(img);
 
         var app; //var app laves for at definere en klasse - app vil fungere som en java klasse man kan kalde med app.(den funktion/metode man vil bruge)
         app = {
-            cars : ['Images/BMW%20i8%20IFA.jpg', 'Images/BMW%20i8%20IFA.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/LaFerrari.png', 'Images/LaFerrari.png', 'Images/challenger%202017.jpg', 'Images/challenger%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/LFA%202017.jpg', 'Images/LFA%202017.jpg', 'Images/charger2%2017.jpg', 'Images/charger2%2017'],
-            //foreach:function (image) {
-              //var img = document.createElement('img');
-              //img.src = image;
-              //document.body.appendChild(img)
-
+            cars : ['Images/BMW%20i8%20IFA.jpg', 'Images/BMW%20i8%20IFA.jpg', 'Images/charger%202017.jpg', 'Images/charger%202017.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/Bugatti%20Chiron.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/camaro%20zl1%202017.jpg', 'Images/LaFerrari.png', 'Images/LaFerrari.png', 'Images/challenger%202017.jpg', 'Images/challenger%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/GT-R%202017.jpg', 'Images/LFA%202017.jpg', 'Images/LFA%202017.jpg'],
             //cars: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8], //cars er et array der indeholder elementer til brikkerne
 
             init: function () { //init functionen agere som start - dvs kortene/brikkerne blandes ved opstart
@@ -91,25 +82,25 @@
                 if ($('.selected').length == 2) {
                     if ($('.selected').first().data('cardValue') == $('.selected').last().data('cardValue')) {
                         //remove cards
-                        $('.selected').each(function(){
-                          $(this).animate({opacity: 0}).removeClass('unmatch');
+                        $('.selected').each(function () {
+                            $(this).animate({opacity: 0}).removeClass('unmatch');
                         });
-                        $('.selected').each(function() {
+                        $('.selected').each(function () {
                             $(this).removeClass('selected');
                         });
                     } else {
                         //flip cards back
                         setTimeout(function () {//timeout metoden er til, da der vil gå 1 sekund før brikkerne vender om igen
-                        $('.selected').each(function(){
-                            $(this).html('').removeClass('selected');
-                        });
-                        },1000);
+                            $('.selected').each(function () {
+                                $(this).html('').removeClass('selected');
+                            });
+                        }, 1000);
 
                     }
 
-
                 }
-            }
+                }
+
 
         };
         app.init();
